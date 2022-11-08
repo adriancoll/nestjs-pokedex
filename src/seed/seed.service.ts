@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
@@ -8,14 +9,19 @@ import { PokeResponse } from './interfaces/poke-response.interface';
 
 @Injectable()
 export class SeedService {
+  private readonly pokeapiUrl: string;
+
   constructor(
     @InjectModel(Pokemon.name) private readonly pokemonModel: Model<Pokemon>,
-    private readonly http: AxiosAdapter
-  ) {}
+    private readonly http: AxiosAdapter,
+    private readonly configService: ConfigService
+  ) {
+    this.pokeapiUrl = configService.get('pokeapiUrl')
+  }
 
   async executeSeed() {
     const data = await this.http.get<PokeResponse>(
-      `${process.env.POKEAPI_URL}?limit=800`,
+      `${this.pokeapiUrl}?limit=800`,
     );
 
     await this.pokemonModel.deleteMany();
