@@ -29,6 +29,6 @@ import { JoiValidationSchema } from './common/config/joi.validation';
 })
 export class AppModule {
   constructor() {
-    console.log(process.env.MONGODB);
+    console.log(EnvConfiguration());
   }
 }
