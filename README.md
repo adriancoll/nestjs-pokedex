@@ -5,6 +5,7 @@
 # Ejecutar en desarrollo
 
 1. Clonar el repositorio
+
 2. Ejecutar
 ```
 yarn install
@@ -21,6 +22,14 @@ docker-compose up -d
 ```
 https://localhost:3000/api/v2/seed
 ```
+6. Clonar el archio __.env.example__ y renombrar a __.env__
+
+7. Llenar las variables de entorno definidas en el __.env__]
+8. Ejecutar la aplicación en modo de desarrollo
+```
+yarn start:dev
+```
+
 
 ## Stack usado
 
