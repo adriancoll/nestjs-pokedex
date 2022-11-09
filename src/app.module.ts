@@ -27,8 +27,4 @@ import { JoiValidationSchema } from './common/config/joi.validation';
   ],
   controllers: [],
 })
-export class AppModule {
-  constructor() {
-    console.log(EnvConfiguration());
-  }
-}
+export class AppModule {}
