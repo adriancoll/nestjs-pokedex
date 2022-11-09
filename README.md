@@ -36,3 +36,21 @@ yarn start:dev
 * MongoDB
 * Nest
 * Mongoose
+
+
+## Notas 
+
+Heroku redeploy sin cambios
+
+```shell
+git commit --allow-empty -m "Trigger Heroku deploy"
+git push heroku <master/main>
+```
+
+# Dockerizar
+
+Para crear los contenedores ejecutar 
+
+```shell
+docker-compose -f docker-compose.(version).yaml --env-file (archivo de variables de entorno) up -d
+```
