@@ -20,11 +20,15 @@ import { JoiValidationSchema } from './common/config/joi.validation';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    MongooseModule.forRoot(process.env.MONGODB_CONNECTION),
+    MongooseModule.forRoot(process.env.MONGODB),
     PokemonModule,
     CommonModule,
     SeedModule,
   ],
   controllers: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log(process.env.MONGODB);
+  }
+}
